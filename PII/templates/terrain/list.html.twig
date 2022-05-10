@@ -1,0 +1,59 @@
+{% block body %}
+
+    <head>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #D6EEEE;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="row">
+
+        <div class="column">
+            <img src="{{ ('uploads/tttt.jpg') }}" height="100" width="180">
+        </div>
+        <h1 style="text-align: center; color:red;"><u>Table des Terrains</u></h1>
+    </div>
+
+
+    <table>
+        <thead>
+        <th>TD Terrain</th>
+        <th>Type Terrain</th>
+
+        </thead>
+
+        {% for terrain in b  %}
+
+                <tr>
+
+                    <td>
+                        {{terrain.idTerrain}}
+                    </td>
+
+                    <td>
+                        {{terrain.typeTerrain}}
+                    </td>
+
+
+                </tr>
+
+        {% endfor %}
+    </table>
+
+    </body>
+
+{% endblock %}
+

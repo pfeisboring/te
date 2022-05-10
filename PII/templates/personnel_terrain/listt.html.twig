@@ -1,0 +1,66 @@
+{% block body %}
+
+    <head>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #D6EEEE;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="row">
+
+        <div class="column">
+            <img src="{{ ('uploads/pp.jpg') }}" height="100" width="180">
+        </div>
+        <h1 style="text-align: center; color:red;"><u>Table des Terrains</u></h1>
+    </div>
+
+
+    <table>
+        <thead>
+        <th>ID Personnel</th>
+        <th>Nom</th>
+        <th>Poste</th>
+        <th>ID Terrain</th>
+
+        </thead>
+
+        {% for PersonnelTerrain in b %}
+
+            <tr>
+
+                <td>
+                    {{ PersonnelTerrain.idPersonnel }}
+                </td>
+
+                <td>
+                    {{ PersonnelTerrain.nom }}
+                </td>
+            <td>
+                {{ PersonnelTerrain.poste }}
+            </td>
+            <td>
+                {{ PersonnelTerrain.idTerrain}}
+            </td>
+
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    </body>
+
+{% endblock %}
+

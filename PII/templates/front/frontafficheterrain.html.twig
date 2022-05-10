@@ -1,0 +1,96 @@
+{% extends 'baseFront.html.twig' %}
+{% block body  %}
+
+<section class="bet-this-game">
+    <div class="overlay pt-120 pb-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-header text-center">
+
+                        <h2 class="title">LISTE DES TERRAINS</h2>
+                        {% for message in app.flashes('info') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                            {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            {% for terrain in b  %}
+
+                <div class="col cus-mar">
+                        <div class="col-sm-6">
+                            <div class="card-body">
+                                <div class="single-area">
+                                    <div class="head-area d-flex align-items-center bottom-item">
+                                        <span>Terrain</span>
+                                        <td>
+                                            <a class="cmn-btn draw" href="{{ path('flash') }}">Reserver</a>
+                                        </td>
+                                    </div>
+                                    <div class="main-content">
+                                        <div class="team-single">
+
+                                            {% if terrain.typeTerrain == "football" %}
+                                                <div class="img-area">
+                                                    <img src="{{ asset('FrontOffice/assets/images/t11.jpg') }}" width="500px" height="500px">
+
+                                                </div>
+                                            {% endif %}
+                                            {% if terrain.typeTerrain== "handball" %}
+                                                <div class="img-area">
+                                                    <img src="{{ asset('FrontOffice/assets/images/t3.jpg') }}" width="500px" height="500px">
+
+                                                </div>
+                                            {% endif %}
+                                            {% if terrain.typeTerrain  == "tennis" %}
+                                                <div class="img-area">
+                                                    <img src="{{ asset('FrontOffice/assets/images/t2.jpg') }}" width="500px" height="500px">
+
+                                                </div>
+                                            {% endif %}
+
+                                            <div class="card-body">
+
+                                                <p class="card-text">{{ terrain.idTerrain }}</p>
+                                                <p class="card-text">{{ terrain.typeTerrain }}</p>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{#    {% for terrain in b  %}#}
+{#    <div class="row">#}
+{#        <div class="col-sm-6">#}
+{#            <div class="card">#}
+{#                <div class="img-area">#}
+{#                    <img src="{{ asset('FrontOffice/assets/images/t11.jpg') }}">#}
+
+{#                </div>#}
+{#                <div class="card-body">#}
+
+{#                    <p class="card-text">{{ terrain.idTerrain }}</p>#}
+
+{#                    <p class="card-text"> {{ terrain.typeTerrain }}</p>#}
+{#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+
+{#    </div>#}
+{#    </div>#}
+{#        </div>#}
+        </div>
+    </div>
+        </section>
+
+{% endblock %}

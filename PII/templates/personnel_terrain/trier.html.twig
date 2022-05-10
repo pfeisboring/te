@@ -1,0 +1,98 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for message in app.flashes('info') %}
+        <div class="alert alert-success">
+        {{ message }}
+    {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3" style="display: flex;justify-content: space-evenly">
+                        <h6 class="text-white text-capitalize ps-3">Table de Personnel</h6>
+                        <span style="display: flex;align-items: center;justify-content: center; width:150px" class="badge badge-sm bg-gradient-success"> <a href="{{ path('add_p') }}">Ajouter Personnel</a></span>
+                        <span style="display: flex;align-items: center;justify-content: center; width:190px" class="badge badge-sm bg-gradient-success"> <a href="{{ path('display_terrain') }}">Afficher Terrain</a></span>
+
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Personnel</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nom</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Poste</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID Terrain</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Modifier</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Supprimer</th>
+                                <th class="text-secondary opacity-7"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for PersonnelTerrain in b %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm"> {{ PersonnelTerrain.idPersonnel }}</h6>
+
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{ PersonnelTerrain.nom }}</p>
+                                        <p class="text-xs text-secondary mb-0"></p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{ PersonnelTerrain.poste }}</p>
+                                        <p class="text-xs text-secondary mb-0"></p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{ PersonnelTerrain.idTerrain}}</p>
+                                        <p class="text-xs text-secondary mb-0"></p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success"> <a href="{{ path('modif_personnel',{'id':PersonnelTerrain.idPersonnel}) }}">Modifier</a></span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="badge badge-sm bg-gradient-success"> <a href="{{ path('supp_personnel',{'id':PersonnelTerrain.idPersonnel}) }}">Supprimer</a></span>
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+                            </tbody>
+
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <span style="display: flex;align-items: center;justify-content: center; width:150px" class="badge badge-sm bg-gradient-success"> <a href="{{ path('pddf') }}">PDF</a></span>
+            <a href=""><i class="btn btn-danger" data-feather="arrow-down"></i>Trier</a>
+
+        </div>
+
+        {#        <div style="display: flex;justify-content: center;align-items: center;">#}
+        {#        {{ knp_pagination_render(b) }}#}
+        {#    </div>#}
+    </div>
+
+    </section>
+    </div>
+    </section>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

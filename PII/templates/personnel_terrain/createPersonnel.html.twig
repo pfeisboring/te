@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="card z-index-0 fadeIn3 fadeInBottom" style="display: flex;justify-content: center; margin-top:100px">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0" width=800px>Ajouter Personnel</h4>
+                <span style="display: flex;align-items: center;justify-content: center; width:150px" class="badge badge-sm bg-gradient-success"> <a href="{{ path('display_personnel') }}">Table Personnel</a></span>
+
+
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            {{ form_start(f,{'attr':{'novalidate':'novalidate','class':'text-start','role':'form'}}) }}
+            <label for="inputText" class="col-sm-2 col-form-label">Personnel</label>
+            <div class="input-group input-group-outline my-3">
+
+                {{ form_widget(f,{'attr':{'class':'form-control','type':'email'}}) }}
+{#                {{ form_errors(f.nom) }}#}
+            </div>
+            <div class="input-group input-group-outline my-3">
+
+
+    {{ form_widget(f,{'attr':{'class':'form-control','type':'email'}}) }}
+
+{# {{ form_errors(f.poste) }}#}
+            </div>
+            <div class="input-group input-group-outline my-3">
+                {{ form_widget(f,{'attr':{'class':'form-control','type':'text'}}) }}
+
+           {#{ form_errors(f.idTerrain) }}#}
+
+            </div>
+
+            <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Submit</button>
+            {{ form_end(f) }}
+        </div>
+    </div>
+{% endblock %}
+
